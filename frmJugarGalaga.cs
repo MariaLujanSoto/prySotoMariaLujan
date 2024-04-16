@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql;
+using MySql.Data.MySqlClient;
 
 namespace prySotoMariaLujan
 {
@@ -135,7 +136,26 @@ namespace prySotoMariaLujan
             objNave.nave.Location = new Point((this.ClientSize.Width - objNave.nave.Width) / 2, this.ClientSize.Height - objNave.nave.Height - 20); //ubico la posicion de la nave envX e Y 
             this.Controls.Add(objNave.nave); //se agrega el objeto al codigo para poder ser dibujado
 
+            try
+            {
+                string cadenaconexion = "Server = localhost;" +
+                "Database = juegorol;" +
+                "Uid = root;" +
+                "Pwd  =  ;";
+                MySqlConnection conn = new MySqlConnection(cadenaconexion);
 
+                conn.Open();
+                MessageBox.Show("Apertura BD");
+            }
+            catch(Exception Error)
+            {
+                MessageBox.Show(Error.Message);
+            }
+
+             // Server = localhost
+            // Database = juegorol
+            //Uid = root
+            //Pwd =;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
