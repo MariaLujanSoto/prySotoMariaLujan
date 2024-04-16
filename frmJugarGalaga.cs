@@ -151,7 +151,7 @@ namespace prySotoMariaLujan
                 }
                 else
                 {
-                    // Lista para almacenar los enemigos impactados
+                    // Lista de los enemigos impactados
                     List<PictureBox> enemigosImpactados = new List<PictureBox>();
 
                     // Verificar colisiones con los enemigos
